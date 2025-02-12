@@ -2,6 +2,9 @@ package com.agibank.S4.S4Exercicios;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class S4Exercicios {
     public static void main(String[] args) {
 //        exercicio1(100);
@@ -15,9 +18,10 @@ public class S4Exercicios {
 //        double[] ativos = {1000, 2000, 1500};
 //        double[] retMedio = {0.05, 0.03, 0.04};
 //        exercicio7(ativos, retMedio);
-        double[] serie1 = {100, 102, 104,106};
-        double[] serie2 = {50, 51, 52, 53};
-        exercicio9(serie1, serie2);
+//        double[] serie1 = {100, 102, 104,106};
+//        double[] serie2 = {50, 51, 52, 53};
+//        exercicio9(serie1, serie2);
+        exercicio10(100, 0.001,0.02, 10);
 
 
     }
@@ -97,10 +101,10 @@ public class S4Exercicios {
         double mediaY = 0;
         double desvioX = exercicio6(serie1);
         double desvioY = exercicio6(serie2);
-        System.out.println(desvioX);
-        System.out.println(desvioY);
+//        System.out.println(desvioX);
+//        System.out.println(desvioY);
         double difMedia = 0;
-        System.out.println(difMedia);
+//        System.out.println(difMedia);
         double result = 0;
 
         for (int i = 0; i < serie1.length; i++) {
@@ -116,6 +120,17 @@ public class S4Exercicios {
         difMedia = difMedia / serie1.length;
         result = difMedia/(desvioX*desvioY);
 
-        System.out.println(result);
+        System.out.printf("%.0f",result);
+    }
+
+    public static void exercicio10(double precoIni, double mediaRetDiario, double volatilidade, int nPeriodos){
+        double E = 2.71828;
+        double[] result = new double[nPeriodos];
+        result[0] = precoIni;
+        for (int i = 1; i < nPeriodos ; i++) {
+            double Z = new Random().nextGaussian();
+            result[i] = result[i-1]*(Math.exp(mediaRetDiario+(volatilidade*Z)));
+        }
+        System.out.println(Arrays.toString(result));
     }
 }
