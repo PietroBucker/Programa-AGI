@@ -21,7 +21,7 @@ public class S4Exercicios {
 //        double[] serie1 = {100, 102, 104,106};
 //        double[] serie2 = {50, 51, 52, 53};
 //        exercicio9(serie1, serie2);
-        exercicio10(100, 0.001,0.02, 10);
+//        exercicio10(100, 0.001,0.02, 10);
 
 
     }
@@ -133,4 +133,7 @@ public class S4Exercicios {
         }
         System.out.println(Arrays.toString(result));
     }
+
+
+
 }
