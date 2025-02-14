@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class S4ExecExceptions {
     public static void main(String[] args) {
-        exercicio1();
-        exercicio3();
+//        exercicio1();
+        exercicio8();
     }
 
     public static void exercicio1(){
@@ -22,5 +22,21 @@ public class S4ExecExceptions {
 
     }
 
-    public static void exercicio3(){}
+    public static void exercicio8(){
+        int numParcelas = 5;
+        double jurosMes = 0.05;
+        double valorEmprestimo = 1000;
+        double parcFixa;
+        parcFixa = (valorEmprestimo*jurosMes)/(1-(Math.pow(1+jurosMes,-numParcelas)));
+        double valorJuros;
+        double amortizacao;
+        for (int i = 1; i <= numParcelas ; i++) {
+            valorJuros = valorEmprestimo*jurosMes;
+            amortizacao = parcFixa - valorJuros ;
+            System.out.printf("%d - %.2f - %.2f - %.2f - ", i, valorEmprestimo, valorJuros, amortizacao);
+            valorEmprestimo = valorEmprestimo - amortizacao;
+            System.out.printf("%.2f \n" ,valorEmprestimo);
+        }
+        System.out.println("--------------------------");
+    }
 }
